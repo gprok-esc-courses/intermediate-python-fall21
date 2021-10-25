@@ -1,5 +1,5 @@
 from tkinter import *
-from cell import Cell
+from mvc_tictactoe.cell import Cell
 
 class GameUI(Tk):
     def __init__(self, control):
@@ -8,6 +8,8 @@ class GameUI(Tk):
         self.geometry('300x300')
         self.title("Tic Tac Toe MVC")
         self.add_cells()
+
+    def start(self):
         self.mainloop()
 
     def add_cells(self):
@@ -19,6 +21,9 @@ class GameUI(Tk):
         for row in range(0, 3):
             for col in range(0, 3):
                 self.cells[row][col].grid(column=col, row=row)
+
+    def set_cell_symbol(self, row, col, symbol):
+        self.cells[row][col].set_symbol(symbol)
 
 
 # just for testing
