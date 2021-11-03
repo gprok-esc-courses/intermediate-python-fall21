@@ -2,7 +2,7 @@ from mvc_tictactoe.game_ui import GameUI
 from mvc_tictactoe.game import Game
 
 
-class Controller:
+class Controller():
     def __init__(self):
         self.ui = GameUI(self)
         self.game = Game()
