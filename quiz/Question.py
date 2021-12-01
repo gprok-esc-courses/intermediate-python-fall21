@@ -8,7 +8,15 @@ class Question:
         self.difficulty = ''
 
     def display(self):
-        pass
+        print("Q: " + self.question)
+        print("1. " + self.answer)
+        print("2. " + self.wrong_answers[0])
+        print("3. " + self.wrong_answers[1])
+        print("4. " + self.wrong_answers[2])
+        print("Choose: ")
 
-    def check_answer(self):
-        pass
+    def check_answer(self, ans_no):
+        if ans_no == 1:
+            return True
+        else:
+            return False
