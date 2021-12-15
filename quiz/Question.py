@@ -1,4 +1,4 @@
-
+import random
 class Question:
     def __init__(self):
         self.question = ''
@@ -6,17 +6,20 @@ class Question:
         self.wrong_answers = []
         self.category = ''
         self.difficulty = ''
+        self.rpos = 0
 
     def display(self):
-        print("Q: " + self.question)
-        print("1. " + self.answer)
-        print("2. " + self.wrong_answers[0])
-        print("3. " + self.wrong_answers[1])
-        print("4. " + self.wrong_answers[2])
+        random.shuffle(self.wrong_answers)
+        self.rpos = random.randint(0, 3)
+        answers = self.wrong_answers.copy()
+        answers.insert(self.rpos, self.answer)
+        print(self.rpos, answers)
+        for i in range(0, 4):
+            print(str(i+1) + ". " + answers[i])
         print("Choose: ")
 
     def check_answer(self, ans_no):
-        if ans_no == 1:
+        if ans_no == self.rpos+1:
             return True
         else:
             return False
